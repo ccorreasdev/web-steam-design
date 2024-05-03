@@ -10,37 +10,13 @@
 </head>
 
 <body class="layout">
-
+    <div class="menu__responsive"></div>
     <main class="app__layout">
 
-        <div class="top__layout">
+        <div class="menu__layout">
             <div class="top__logo">
                 <img class="logo__img" src="./assets/img/steam.png" alt="logo">
             </div>
-            <div class="search__bar">
-
-                <div class="search__logo">
-                    <input class="search__input" type="text" placeholder="Search orders">
-                    <img class="search__img" src="./assets/img/search.png" alt="logo">
-                </div>
-
-
-            </div>
-            <div class="user">
-                <div class="user__logo">
-                    <img class="user__img" src="./assets/img/bell.png" alt="logo">
-                </div>
-                <div class="user__logo">
-                    <img class="user__img" src="./assets/img/message.png" alt="logo">
-                </div>
-                <div class="user__logo user__logo-active">
-                    <img class="user__img user__img-active" src="./assets/img/man.jpeg" alt="logo">
-                </div>
-                <div class="user__text">Andre Sebastian</div>
-            </div>
-        </div>
-
-        <div class="center__layout">
             <div class="center__menu">
                 <ul class="menu__list">
                     <li class="menu__item menu__item--active">
@@ -56,28 +32,50 @@
                     <li class="menu__item">
                         <img class="menu__icon" src="./assets/img/friends.png" alt="icon">
                         Friends</li>
+                        <li class="menu__item">
+                            <img class="menu__icon" src="./assets/img/settings.png" alt="icon">
+                            Settings
+                        </li>
+                        <li class="menu__item ">
+                            <img class="menu__icon" src="./assets/img/help.png" alt="icon">
+                            Help</li>
                 </ul>
             </div>
+
+            <div class="menu__space"></div>
+
+        </div>
+
+        <div class="search__layout">
+            <div class="search__bar">
+                <div class="search__logo">
+                    <input class="search__input" type="text" placeholder="Search orders">
+                    <img class="search__img" src="./assets/img/search.png" alt="logo">
+                </div>
+            </div>
+        </div>
+
+        <div class="user__layout">
+            <div class="user">
+                <div class="user__logo">
+                    <img class="user__img" src="./assets/img/bell.png" alt="logo">
+                </div>
+                <div class="user__logo">
+                    <img class="user__img" src="./assets/img/message.png" alt="logo">
+                </div>
+                <div class="user__logo user__logo-active">
+                    <img class="user__img user__img-active" src="./assets/img/man.jpeg" alt="logo">
+                </div>
+                <div class="user__text">Andre Sebastian</div>
+            </div>
+        </div>
+
+        <div class="game__layout">
             <div class="center__game">
                 <div class="game-img__container">
                     <div class="game__label">Cats</div>
                     <img class="game__img" src="./assets/img/stray.jpeg" alt="game">
                 </div>
-            </div>
-        </div>
-
-        <div class="bottom__layout">
-            <div class="center__menu">
-                <ul class="menu__list">
-                    <li class="menu__item">
-                        <img class="menu__icon" src="./assets/img/settings.png" alt="icon">
-                        Settings
-                    </li>
-                    <li class="menu__item ">
-                        <img class="menu__icon" src="./assets/img/help.png" alt="icon">
-                        Help</li>
-                 
-                </ul>
             </div>
             <div class="bottom__game">
                 <div class="bottom-img__container">
@@ -94,8 +92,6 @@
                 </div>
             </div>
         </div>
-
-
     </main>
 
 

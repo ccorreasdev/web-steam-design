@@ -3,6 +3,7 @@
     --bg-color2: #393d4b;
     --bg-color3: #27161d;
     --color-active: #ff6d27;
+    --color-active-a: #ff6b27a8;
     --color-text: #fafafa;
 }
 
@@ -21,6 +22,7 @@ html {
 }
 
 .layout {
+    position: relative;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: var(--color-text);
     min-height: 100dvh;
@@ -31,7 +33,7 @@ html {
 }
 
 .app__layout {
-    max-width: 7280px;
+    max-width: 1280px;
     min-height: calc(100dvh - 12rem);
     height: 100%;
     margin: 0px auto;
@@ -39,25 +41,50 @@ html {
     border-radius: 20px;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
+    display: grid;
+    grid-template-areas: 
+    "menu search user"
+    "menu game game"
+    "menu game game";
+    grid-template-columns: 280px 1fr 1fr;
+    grid-template-rows: 100px 1fr 1fr;
 }
 
-.top__layout {
+.menu__layout {
     width: 100%;
-    margin-top: 30px;
+    grid-area: menu;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    padding: 4rem 0rem;
+}
+
+.search__layout {
+    grid-area: search;
+  
+}
+
+.user__layout {
+    grid-area: user;
+   
+}
+
+.game__layout {
+    width: 100%;
+    height: 100%;
+    grid-area: game;
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
 }
 
 .top__logo {
     width: 50px;
     height: 50px;
-    overflow: hidden;
 }
 
 .logo__img {
@@ -65,35 +92,86 @@ html {
     height: 100%;
 }
 
-.search__bar {
+.center__menu {
+    width: 100%;
+    padding: 0rem 5rem;
+    padding-bottom: 2rem;
+}
+
+.menu__list {
+    width: 100%;
+}
+
+.menu__item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    font-size: 1.9rem;
+    gap: 0rem 1rem;
+}
+
+.menu__item--active {
+    color: #ff6d27;
     position: relative;
 }
 
+.menu__item--active::after {
+    position: absolute;
+    content: "";
+    top: 5px;
+    left: -20px;
+    background-color: var(--color-active);
+    height: 40px;
+    width: 10px;
+}
 
+.menu__icon {
+    width: 50px;
+    height: 50px;
+}
 
-.seach__logo {
+.search__layout {
+    width: 100%;
+    height: 100%;
     position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.search__logo {
+    position: relative;
+  
 }
 
 .search__input {
-    width: 300px;
-    height: 50px;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.25);
     border: none;
-    text-align: left;
-    padding: 0rem 5rem;
-    color: white;
-    font-size: 1.6rem;
+    height: 40px;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: var(--color-text);
+    padding-left: 5rem;
+    font-size: 1.8rem;
 }
-
 
 .search__img {
     position: absolute;
-    top: 10px;
+    top: 8px;
     left: 10px;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
+}
+
+.user__layout { 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .user {
@@ -101,20 +179,19 @@ html {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 0rem 1rem;
+    gap: 0rem 4rem;
 }
+
 
 .user__logo {
     width: 50px;
     height: 50px;
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.25);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 100%;
-
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .user__logo-active {
@@ -122,167 +199,119 @@ html {
 }
 
 .user__img {
-    width: 30px;
-    height: 30px;
-}
-
-.user__img-active {
-
-    border-radius: 100%;
     width: 40px;
     height: 40px;
-
-}
-
-.user__text {
-    color: var(--color-text);
-    font-size: 1.7rem;
-}
-
-.center__layout {
-    margin-top: 4rem;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: center;
-    gap: 0rem 4rem;
-}
-
-.center__menu {
-    display: flex;
-    flex-basis: 2;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    width: 350px;
+    border-radius: 20px;
 }
 
 .center__game {
+    width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-basis: 1;
-    width: 100%;
-    height: 100%;   
 }
 
-.game-img__container{
-    width: 500px;
-    border-radius: 20px;
-    overflow: hidden;
+.game-img__container {
     position: relative;
 }
 
 .game__label {
     position: absolute;
-    top: 15px;
-    left: calc(50% - 40px);
-    border-radius: 20px;
+    top: 10px;
+    left: 10px;
     font-size: 1.8rem;
-    height: 40px;
-    width: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.55);
+    background-color: var(--color-active-a);
+    padding: 1rem;
+    border-radius: 20px;
 }
 
 .game__img {
-    width: 100%;
-    height: 100%;
-}
-
-.menu__list{
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: start;
-    gap: 3rem 0rem;
-}
-
-.menu__item {
-    font-size:2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    gap: 0rem 1rem;
-    cursor: pointer;
-    width: 100%;
-}
-
-.menu__item--active {
-    position: relative;
-  color: var(--color-active);
-}
-
-.menu__item--active::after {
-    position: absolute;
-    content: "";
-    top: 0px;
-    left: -20px;
-    width: 6px;
-    height: 30px;
+    width: 500px;
+    height: auto;
     border-radius: 20px;
-    background-color: var(--color-active);
-}
-
-.menu__icon {
-    width: 30px;
-    height: 30px;
-}
-
-.bottom__layout {
-    margin-top: 4rem;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    text-align: center;
-    gap: 0rem 4rem;
-}
-
-.bottom-img__container{
-    width: 180px;
-    height: 200px;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-}
-
-.bottom__img {
-    width: 100%;
-    height: 100%;
 }
 
 .bottom__game {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 0rem 2rem;
-    flex-basis: 1;
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+
+.bottom__img {
+    border-radius: 20px;
+}
+
+.menu__responsive {
+    position: absolute;
     width: 100%;
-    height: 100%;   
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 99;
+}
+
+@media (max-width: 1280px) {
+    .layout {
+        min-height: 100%;
+        height: 100%;
+    }
+
+    .app__layout {
+        grid-template-areas: 
+        "menu menu"
+        "search user"
+        "game game"
+        "game game";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 200px 100px 1fr 1fr;
+        min-height: 100%;
+    } 
+
+    .menu__list {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .search__layout {
+       margin-top: 1rem;
+    }
+
+    .user__layout {
+        margin-top: 1rem;
+    }
+
+    .game__layout {
+        margin-top: 5rem;
+        margin-bottom:12rem;
+    }
+}
+
+@media  (max-width: 1024px) {
+
+    .menu__item {
+        width: 100%;
+        flex-basis: 1;
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+        gap: 1rem;
+    }
+
+    
 }
 
 
+@media  (max-width: 768px) {
 
-@media (max-width: 1280px) {
-    .bottom__game {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 2rem 2rem;
-    }
 
-    .center__menu {
-        position: absolute;
-        flex-basis: 0;
-        opacity: 0;
-        pointer-events: none;
-    }
-
+    
 }
